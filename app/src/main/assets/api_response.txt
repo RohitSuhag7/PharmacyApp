@@ -1,0 +1,230 @@
+{
+  "user": {
+    "user_id": "U001",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "johndoe@example.com",
+    "phone": "321-654-9870",
+    "profile_picture": "https://example.com/profile-pic.jpg",
+    "dob": "1985-03-15"
+  },
+  "doctors": [
+    {
+      "doctor_id": "D001",
+      "first_name": "Dr. Sarah",
+      "last_name": "Lee",
+      "specialization": "General Practitioner",
+      "phone": "123-456-7890",
+      "email": "dr.sarah@clinic.com",
+      "profile_picture": "https://example.com/dr-sarah.jpg"
+    },
+    {
+      "doctor_id": "D002",
+      "first_name": "Dr. James",
+      "last_name": "Smith",
+      "specialization": "Cardiologist",
+      "phone": "321-654-9870",
+      "email": "dr.james@heartclinic.com",
+      "profile_picture": "https://example.com/dr-james.jpg"
+    },
+    {
+      "doctor_id": "D003",
+      "first_name": "Dr. Maria",
+      "last_name": "Gomez",
+      "specialization": "Pediatrician",
+      "phone": "654-321-9870",
+      "email": "dr.maria@pediaclinic.com",
+      "profile_picture": "https://example.com/dr-maria.jpg"
+    },
+    {
+      "doctor_id": "D004",
+      "first_name": "Dr. Alan",
+      "last_name": "Brown",
+      "specialization": "Dermatologist",
+      "phone": "987-654-3210",
+      "email": "dr.alan@skinclinic.com",
+      "profile_picture": "https://example.com/dr-alan.jpg"
+    },
+    {
+      "doctor_id": "D005",
+      "first_name": "Dr. Olivia",
+      "last_name": "Davis",
+      "specialization": "Orthopedic Surgeon",
+      "phone": "876-543-2109",
+      "email": "dr.olivia@orthoclinic.com",
+      "profile_picture": "https://example.com/dr-olivia.jpg"
+    }
+  ],
+  "pharmacies": [
+    {
+      "pharmacy_id": "P001",
+      "name": "Pharmacy Plus",
+      "address": {
+        "address": "111 Pharmacy Ave.",
+        "city": "Pharmacy City",
+        "state": "Pharmacy State",
+        "zip_code": "12345",
+        "country": "Country"
+      },
+      "contact": {
+        "phone": "555-123-4567",
+        "email": "contact@pharmacyplus.com",
+        "website": "https://pharmacyplus.com"
+      },
+      "location": {
+        "latitude": 40.7128,
+        "longitude": -74.006
+      }
+    },
+    {
+      "pharmacy_id": "P002",
+      "name": "Care Pharmacy",
+      "address": {
+        "address": "200 Care St.",
+        "city": "Pharmacy City",
+        "state": "Pharmacy State",
+        "zip_code": "12345",
+        "country": "Country"
+      },
+      "contact": {
+        "phone": "555-987-6543",
+        "email": "support@carepharmacy.com",
+        "website": "https://carepharmacy.com"
+      },
+      "location": {
+        "latitude": 40.73061,
+        "longitude": -73.935242
+      }
+    },
+    {
+      "pharmacy_id": "P003",
+      "name": "HealthCare Pharmacy",
+      "address": {
+        "address": "303 Wellness Rd.",
+        "city": "Pharmacy City",
+        "state": "Pharmacy State",
+        "zip_code": "12345",
+        "country": "Country"
+      },
+      "contact": {
+        "phone": "555-765-4321",
+        "email": "contact@healthcarepharmacy.com",
+        "website": "https://healthcarepharmacy.com"
+      },
+      "location": {
+        "latitude": 40.758,
+        "longitude": -73.9855
+      }
+    },
+    {
+      "pharmacy_id": "P004",
+      "name": "Citywide Pharmacy",
+      "address": {
+        "address": "555 City Rd.",
+        "city": "Pharmacy City",
+        "state": "Pharmacy State",
+        "zip_code": "12345",
+        "country": "Country"
+      },
+      "contact": {
+        "phone": "555-321-4321",
+        "email": "citywide@pharmacy.com",
+        "website": "https://citywidepharmacy.com"
+      },
+      "location": {
+        "latitude": 40.748817,
+        "longitude": -73.985428
+      }
+    }
+  ],
+  "medicines": [
+    {
+      "medicine_id": "M001",
+      "name": "Aspirin",
+      "category": "Painkiller",
+      "price": 5.99,
+      "stock_quantity": 100,
+      "manufacturer": "PharmaCorp",
+      "description": "Used for relieving pain and inflammation",
+      "prescription_required": false,
+      "medical_reasons": ["Headaches", "Inflammation", "Minor aches and pains"]
+    },
+    {
+      "medicine_id": "M002",
+      "name": "Amoxicillin",
+      "category": "Antibiotic",
+      "price": 12.99,
+      "stock_quantity": 50,
+      "manufacturer": "MediLabs",
+      "description": "Used for treating bacterial infections",
+      "prescription_required": true,
+      "medical_reasons": ["Bacterial Infections", "Respiratory infections", "Ear infections"]
+    },
+    {
+      "medicine_id": "M003",
+      "name": "Metformin",
+      "category": "Diabetes Medication",
+      "price": 19.99,
+      "stock_quantity": 75,
+      "manufacturer": "MediPharma",
+      "description": "Helps control blood sugar levels in patients with type 2 diabetes",
+      "prescription_required": true,
+      "medical_reasons": ["Type 2 Diabetes"]
+    },
+    {
+      "medicine_id": "M004",
+      "name": "Ibuprofen",
+      "category": "Anti-inflammatory",
+      "price": 8.99,
+      "stock_quantity": 120,
+      "manufacturer": "HealthCorp",
+      "description": "Used to reduce fever and treat pain and inflammation",
+      "prescription_required": false,
+      "medical_reasons": ["Pain", "Fever", "Inflammation"]
+    },
+    {
+      "medicine_id": "M005",
+      "name": "Paracetamol",
+      "category": "Painkiller",
+      "price": 4.99,
+      "stock_quantity": 150,
+      "manufacturer": "PharmaInc",
+      "description": "Used to treat mild to moderate pain and reduce fever",
+      "prescription_required": false,
+      "medical_reasons": ["Headaches", "Fever", "Minor Pain"]
+    },
+    {
+      "medicine_id": "M006",
+      "name": "Hydrochlorothiazide",
+      "category": "Diuretic",
+      "price": 14.99,
+      "stock_quantity": 60,
+      "manufacturer": "MedicoLabs",
+      "description": "Used for managing high blood pressure and fluid retention",
+      "prescription_required": true,
+      "medical_reasons": ["High Blood Pressure", "Fluid Retention"]
+    },
+    {
+      "medicine_id": "M007",
+      "name": "Cetirizine",
+      "category": "Antihistamine",
+      "price": 6.99,
+      "stock_quantity": 80,
+      "manufacturer": "AllergyCo",
+      "description": "Used to relieve allergy symptoms such as runny nose and sneezing",
+      "prescription_required": false,
+      "medical_reasons": ["Allergies", "Hay Fever", "Seasonal Allergic Rhinitis"]
+    },
+    {
+      "medicine_id": "M008",
+      "name": "Omeprazole",
+      "category": "Proton Pump Inhibitor",
+      "price": 18.99,
+      "stock_quantity": 50,
+      "manufacturer": "StomachCare",
+      "description": "Used to treat acid reflux and stomach ulcers",
+      "prescription_required": true,
+      "medical_reasons": ["Acid Reflux", "Gastroesophageal Reflux Disease (GERD)", "Stomach Ulcers"]
+    }
+  ]
+}
