@@ -147,7 +147,11 @@
       "manufacturer": "PharmaCorp",
       "description": "Used for relieving pain and inflammation",
       "prescription_required": false,
-      "medical_reasons": ["Headaches", "Inflammation", "Minor aches and pains"]
+      "medical_reasons": [
+        "Headaches",
+        "Inflammation",
+        "Minor aches and pains"
+      ]
     },
     {
       "medicine_id": "M002",
@@ -158,7 +162,11 @@
       "manufacturer": "MediLabs",
       "description": "Used for treating bacterial infections",
       "prescription_required": true,
-      "medical_reasons": ["Bacterial Infections", "Respiratory infections", "Ear infections"]
+      "medical_reasons": [
+        "Bacterial Infections",
+        "Respiratory infections",
+        "Ear infections"
+      ]
     },
     {
       "medicine_id": "M003",
@@ -169,7 +177,9 @@
       "manufacturer": "MediPharma",
       "description": "Helps control blood sugar levels in patients with type 2 diabetes",
       "prescription_required": true,
-      "medical_reasons": ["Type 2 Diabetes"]
+      "medical_reasons": [
+        "Type 2 Diabetes"
+      ]
     },
     {
       "medicine_id": "M004",
@@ -180,7 +190,11 @@
       "manufacturer": "HealthCorp",
       "description": "Used to reduce fever and treat pain and inflammation",
       "prescription_required": false,
-      "medical_reasons": ["Pain", "Fever", "Inflammation"]
+      "medical_reasons": [
+        "Pain",
+        "Fever",
+        "Inflammation"
+      ]
     },
     {
       "medicine_id": "M005",
@@ -191,7 +205,11 @@
       "manufacturer": "PharmaInc",
       "description": "Used to treat mild to moderate pain and reduce fever",
       "prescription_required": false,
-      "medical_reasons": ["Headaches", "Fever", "Minor Pain"]
+      "medical_reasons": [
+        "Headaches",
+        "Fever",
+        "Minor Pain"
+      ]
     },
     {
       "medicine_id": "M006",
@@ -202,7 +220,10 @@
       "manufacturer": "MedicoLabs",
       "description": "Used for managing high blood pressure and fluid retention",
       "prescription_required": true,
-      "medical_reasons": ["High Blood Pressure", "Fluid Retention"]
+      "medical_reasons": [
+        "High Blood Pressure",
+        "Fluid Retention"
+      ]
     },
     {
       "medicine_id": "M007",
@@ -213,7 +234,11 @@
       "manufacturer": "AllergyCo",
       "description": "Used to relieve allergy symptoms such as runny nose and sneezing",
       "prescription_required": false,
-      "medical_reasons": ["Allergies", "Hay Fever", "Seasonal Allergic Rhinitis"]
+      "medical_reasons": [
+        "Allergies",
+        "Hay Fever",
+        "Seasonal Allergic Rhinitis"
+      ]
     },
     {
       "medicine_id": "M008",
@@ -224,7 +249,37 @@
       "manufacturer": "StomachCare",
       "description": "Used to treat acid reflux and stomach ulcers",
       "prescription_required": true,
-      "medical_reasons": ["Acid Reflux", "Gastroesophageal Reflux Disease (GERD)", "Stomach Ulcers"]
+      "medical_reasons": [
+        "Acid Reflux",
+        "Gastroesophageal Reflux Disease (GERD)",
+        "Stomach Ulcers"
+      ]
+    }
+  ],
+  "medical_reasons": [
+    {
+      "medicine_id": "M001",
+      "reason": "Headache"
+    },
+    {
+      "medicine_id": "M002",
+      "reason": "Fever"
+    },
+    {
+      "medicine_id": "M003",
+      "reason": "Pain"
+    },
+    {
+      "medicine_id": "M004",
+      "reason": "Cold and Flu"
+    },
+    {
+      "medicine_id": "M005",
+      "reason": "Type 2 Diabetes"
+    },
+    {
+      "medicine_id": "M006",
+      "reason": "Bacterial Infection"
     }
   ]
 }
