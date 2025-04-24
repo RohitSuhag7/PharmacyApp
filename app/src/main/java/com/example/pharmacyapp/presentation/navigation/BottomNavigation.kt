@@ -16,6 +16,7 @@ import com.example.pharmacyapp.presentation.screens.SettingsScreen
 import com.example.pharmacyapp.presentation.screens.PDFViewerScreen
 import com.example.pharmacyapp.presentation.screens.PharmaciesLocationMapScreen
 import com.example.pharmacyapp.presentation.screens.auth.LoginScreen
+import com.example.pharmacyapp.presentation.screens.doctor.ChatScreen
 import com.example.pharmacyapp.presentation.screens.doctor.DoctorProfile
 import com.example.pharmacyapp.presentation.screens.doctor.DoctorsListScreen
 import com.example.pharmacyapp.presentation.screens.medicines.MedicineDetailsScreen
@@ -61,6 +62,7 @@ fun BottomNavigation(navController: NavHostController) {
             )
         ) { navBackStackEntry ->
             DoctorProfile(
+                navController = navController,
                 doctorsJsonString = navBackStackEntry.arguments?.getString(DOCTOR_NAV_KEY)
             )
         }
@@ -104,6 +106,19 @@ fun BottomNavigation(navController: NavHostController) {
         }
         composable(route = Constants.SETTINGS_SCREEN) {
             SettingsScreen(navController = navController)
+        }
+        composable(
+            route = Constants.CHAT_SCREEN + "?$DOCTOR_NAV_KEY={$DOCTOR_NAV_KEY}",
+            arguments = listOf(
+                navArgument(DOCTOR_NAV_KEY) {
+                    type = NavType.StringType
+                    nullable = true
+                }
+            )) { navBackStackEntry ->
+            ChatScreen(
+                navController = navController,
+                doctorsJsonString = navBackStackEntry.arguments?.getString(DOCTOR_NAV_KEY)
+            )
         }
     }
 }

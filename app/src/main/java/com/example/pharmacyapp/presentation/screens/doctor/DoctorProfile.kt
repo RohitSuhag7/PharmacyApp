@@ -46,19 +46,22 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.zIndex
 import androidx.core.app.ActivityCompat
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.example.pharmacyapp.R
 import com.example.pharmacyapp.data.model.Doctor
 import com.example.pharmacyapp.presentation.theme.LightBlue
 import com.example.pharmacyapp.presentation.theme.LightGreen
 import com.example.pharmacyapp.presentation.theme.LightSkyBlue
 import com.example.pharmacyapp.presentation.viewmodel.PharmacyViewModel
+import com.example.pharmacyapp.utils.Constants
+import com.example.pharmacyapp.utils.Constants.DOCTOR_NAV_KEY
 import com.example.pharmacyapp.utils.DropDownMenuEventHandler
 import com.example.pharmacyapp.utils.MyIconButtonWithText
 import com.google.gson.Gson
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DoctorProfile(doctorsJsonString: String?) {
+fun DoctorProfile(navController: NavController, doctorsJsonString: String?) {
 
     val doctorData = Gson().fromJson(doctorsJsonString, Doctor::class.java)
 
@@ -207,22 +210,27 @@ fun DoctorProfile(doctorsJsonString: String?) {
                     iconId = R.drawable.ic_sms,
                     iconText = "SMS",
                     onClick = {
-                        val smsIntent = Intent(Intent.ACTION_VIEW)
-                        smsIntent.setData(Uri.parse("sms:$doctorPhoneNumber"))
+                        // Open Message application from this app
 
-                        if (ActivityCompat.checkSelfPermission(
-                                context,
-                                Manifest.permission.SEND_SMS
-                            ) == PackageManager.PERMISSION_GRANTED
-                        ) {
-                            context.startActivity(smsIntent)
-                        } else {
-                            ActivityCompat.requestPermissions(
-                                context as Activity,
-                                arrayOf(Manifest.permission.SEND_SMS),
-                                1
-                            )
-                        }
+//                        val smsIntent = Intent(Intent.ACTION_VIEW)
+//                        smsIntent.setData(Uri.parse("sms:$doctorPhoneNumber"))
+//
+//                        if (ActivityCompat.checkSelfPermission(
+//                                context,
+//                                Manifest.permission.SEND_SMS
+//                            ) == PackageManager.PERMISSION_GRANTED
+//                        ) {
+//                            context.startActivity(smsIntent)
+//                        } else {
+//                            ActivityCompat.requestPermissions(
+//                                context as Activity,
+//                                arrayOf(Manifest.permission.SEND_SMS),
+//                                1
+//                            )
+//                        }
+
+                        // Navigate to Chat Screen with doctor details
+                        navController.navigate(Constants.CHAT_SCREEN + "?$DOCTOR_NAV_KEY=$doctorsJsonString")
                     }
                 )
 

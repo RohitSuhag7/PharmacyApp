@@ -2,10 +2,12 @@ package com.example.pharmacyapp.di
 
 import com.example.pharmacyapp.domain.repository.AppointmentsRepository
 import com.example.pharmacyapp.domain.repository.AuthRepository
+import com.example.pharmacyapp.domain.repository.ChatRepository
 import com.example.pharmacyapp.domain.repository.OrderedMedicineRepository
 import com.example.pharmacyapp.domain.repository.PharmacyRepository
 import com.example.pharmacyapp.domain.usecases.AddAppointmentsUseCase
 import com.example.pharmacyapp.domain.usecases.AuthUseCase
+import com.example.pharmacyapp.domain.usecases.ChatUseCase
 import com.example.pharmacyapp.domain.usecases.GetAllAppointmentsUseCase
 import com.example.pharmacyapp.domain.usecases.InsertOrderedMedicineUseCase
 import com.example.pharmacyapp.domain.usecases.PharmacyDoctorsUseCase
@@ -60,4 +62,8 @@ object UseCaseModule {
     @Provides
     @Singleton
     fun provideAuthUseCase(repository: AuthRepository): AuthUseCase = AuthUseCase(repository)
+
+    @Provides
+    @Singleton
+    fun provideChatUseCase(repository: ChatRepository): ChatUseCase = ChatUseCase(repository)
 }

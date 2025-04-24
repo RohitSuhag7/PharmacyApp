@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface ApiService {
 
-    @GET("7dac0757-c5b4-449d-9695-2da9b0d6fc77")                 //f473f7f5-6fd8-4179-aeb6-2e4c27addfe1, //ff7af803-aee5-4bbe-9cc4-1906bfc3177f
+    @GET("8899b7e4-4cef-459f-a2d2-19ed2fe2c9c2")
     suspend fun getPharmacyData(): PharmacyData
 }

@@ -328,19 +328,6 @@ fun ProfileDetailsCardView(
                 color = Color.Black
             )
 
-//            TextField(
-//                value = desc,
-//                onValueChange = {},
-//                textStyle = TextStyle(color = Color.Black),
-//                singleLine = true,
-//                colors = TextFieldDefaults.colors(
-//                    focusedContainerColor = Color.Transparent,
-//                    unfocusedContainerColor = Color.Transparent,
-//                    focusedIndicatorColor = Color.Transparent,
-//                    unfocusedIndicatorColor = Color.Transparent
-//                )
-//            )
-
             Text(
                 text = desc,
                 color = Color.Black,

@@ -15,6 +15,8 @@ object Constants {
     const val SIGNUP_SCREEN = "signup_screen"
 
     const val FIRESTORE_COLLECTION = "users"
+    const val FIRESTORE_CHATS_COLLECTION = "chats"
+    const val FIRESTORE_MESSAGE_COLLECTION = "messages"
 
     const val DOCTOR_NAV_KEY = "doctor_nav_key"
     const val MEDICINE_NAV_KEY = "medicine_nav_key"
@@ -34,6 +36,7 @@ object Constants {
     const val PDF_VIEWER_SCREEN = "pdf_viewer_screen"
     const val EXOPLAYER_SCREEN = "exoplayer_screen"
     const val SETTINGS_SCREEN = "settings_screen"
+    const val CHAT_SCREEN = "chat_screen"
 
     const val APPOINTMENTS_TABLE = "appointments_table"
     const val ORDERED_MEDICINE_TABLE = "ordered_medicine_table"

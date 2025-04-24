@@ -112,7 +112,8 @@ fun PharmacyBottomBar() {
         Constants.LOGIN_SCREEN,
         Constants.PDF_VIEWER_SCREEN + "?$PDF_FILE_PATH={$PDF_FILE_PATH}",
         Constants.EXOPLAYER_SCREEN,
-        Constants.SETTINGS_SCREEN
+        Constants.SETTINGS_SCREEN,
+        Constants.CHAT_SCREEN + "?$DOCTOR_NAV_KEY={$DOCTOR_NAV_KEY}"
     )
     val showBottomBar = listOfRoutes.contains(currentRoute).not()
 

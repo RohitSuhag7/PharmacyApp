@@ -9,8 +9,10 @@ import com.example.pharmacyapp.utils.DataStorePreference
 import com.example.pharmacyapp.data.repositoryImp.OrderedMedicineRepositoryImp
 import com.example.pharmacyapp.data.repositoryImp.PharmacyRepositoryImp
 import com.example.pharmacyapp.data.remote.ApiService
+import com.example.pharmacyapp.data.repositoryImp.ChatRepositoryImp
 import com.example.pharmacyapp.domain.repository.AppointmentsRepository
 import com.example.pharmacyapp.domain.repository.AuthRepository
+import com.example.pharmacyapp.domain.repository.ChatRepository
 import com.example.pharmacyapp.domain.repository.OrderedMedicineRepository
 import com.example.pharmacyapp.domain.repository.PharmacyRepository
 import com.google.firebase.auth.FirebaseAuth
@@ -64,4 +66,11 @@ object RepositoryModule {
         firebaseAuth: FirebaseAuth,
         firestore: FirebaseFirestore
     ): AuthRepository = AuthRepositoryImp(firebaseAuth, firestore)
+
+    @Provides
+    @Singleton
+    fun provideChatRepository(
+        firebaseAuth: FirebaseAuth,
+        firestore: FirebaseFirestore
+    ): ChatRepository = ChatRepositoryImp(firebaseAuth, firestore)
 }
