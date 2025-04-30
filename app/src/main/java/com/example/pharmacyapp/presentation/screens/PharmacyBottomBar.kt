@@ -1,5 +1,6 @@
 package com.example.pharmacyapp.presentation.screens
 
+import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -47,12 +48,13 @@ import com.example.pharmacyapp.presentation.theme.LightBlue
 import com.example.pharmacyapp.presentation.viewmodel.AuthViewModel
 import com.example.pharmacyapp.utils.Constants
 import com.example.pharmacyapp.utils.Constants.DOCTOR_NAV_KEY
+import com.example.pharmacyapp.utils.Constants.GALLERY_IMAGE_URI
 import com.example.pharmacyapp.utils.Constants.MEDICINE_NAV_KEY
 import com.example.pharmacyapp.utils.Constants.PDF_FILE_PATH
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun PharmacyBottomBar() {
+fun PharmacyBottomBar(sharedImageUri: Uri?) {
     val navController = rememberNavController()
 
     val viewModel: AuthViewModel = hiltViewModel()
@@ -104,7 +106,7 @@ fun PharmacyBottomBar() {
     val currentRoute = navBackStackEntry?.destination?.route
 
     val listOfRoutes = listOf(
-        Constants.DOCTORS_LIST_SCREEN,
+        Constants.DOCTORS_LIST_SCREEN + "?$GALLERY_IMAGE_URI={$GALLERY_IMAGE_URI}",
         Constants.DOCTOR_PROFILE + "?$DOCTOR_NAV_KEY={$DOCTOR_NAV_KEY}",
         Constants.MEDICINES_LIST_SCREEN,
         Constants.MEDICINES_DETAILS_SCREEN + "?$MEDICINE_NAV_KEY={$MEDICINE_NAV_KEY}",
@@ -113,7 +115,7 @@ fun PharmacyBottomBar() {
         Constants.PDF_VIEWER_SCREEN + "?$PDF_FILE_PATH={$PDF_FILE_PATH}",
         Constants.EXOPLAYER_SCREEN,
         Constants.SETTINGS_SCREEN,
-        Constants.CHAT_SCREEN + "?$DOCTOR_NAV_KEY={$DOCTOR_NAV_KEY}"
+        Constants.CHAT_SCREEN + "?$DOCTOR_NAV_KEY={$DOCTOR_NAV_KEY}&$GALLERY_IMAGE_URI={$GALLERY_IMAGE_URI}"
     )
     val showBottomBar = listOfRoutes.contains(currentRoute).not()
 
@@ -206,10 +208,16 @@ fun PharmacyBottomBar() {
                     .fillMaxSize()
                     .padding(it),
             ) {
-                BottomNavigation(navController = navController)
+                BottomNavigation(
+                    navController = navController,
+                    sharedImageUri = sharedImageUri
+                )
             }
         }
     } else {
-        BottomNavigation(navController = navController)
+        BottomNavigation(
+            navController = navController,
+            sharedImageUri = sharedImageUri
+        )
     }
 }

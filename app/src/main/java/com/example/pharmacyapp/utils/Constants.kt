@@ -21,6 +21,7 @@ object Constants {
     const val DOCTOR_NAV_KEY = "doctor_nav_key"
     const val MEDICINE_NAV_KEY = "medicine_nav_key"
     const val PDF_FILE_PATH = "pdfFilePath"
+    const val GALLERY_IMAGE_URI = "gallery_image_uri"
 
     const val BOTTOM_NAV = "bottom_nav"
     const val PROFILE_SCREEN = "profile_screen"

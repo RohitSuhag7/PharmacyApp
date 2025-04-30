@@ -1,5 +1,6 @@
 package com.example.pharmacyapp.presentation.screens.doctor
 
+import android.net.Uri
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -48,12 +49,13 @@ import com.example.pharmacyapp.presentation.theme.LightGreen
 import com.example.pharmacyapp.presentation.viewmodel.PharmacyViewModel
 import com.example.pharmacyapp.utils.Constants
 import com.example.pharmacyapp.utils.Constants.DOCTOR_NAV_KEY
+import com.example.pharmacyapp.utils.Constants.GALLERY_IMAGE_URI
 import com.example.pharmacyapp.utils.MySearchBar
 import com.google.gson.Gson
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DoctorsListScreen(navController: NavController) {
+fun DoctorsListScreen(navController: NavController, sharedImageUri: String?) {
 
     val pharmacyViewModel: PharmacyViewModel = hiltViewModel()
     val filteredDoctors by pharmacyViewModel.doctorsData.collectAsState()
@@ -117,7 +119,11 @@ fun DoctorsListScreen(navController: NavController) {
                         isAvailable = true,
                         onClick = {
                             val doctorsJsonString = Gson().toJson(filteredDoctors[index])
-                            navController.navigate(Constants.DOCTOR_PROFILE + "?$DOCTOR_NAV_KEY=$doctorsJsonString")
+                            if (sharedImageUri == null) {
+                                navController.navigate(Constants.DOCTOR_PROFILE + "?$DOCTOR_NAV_KEY=$doctorsJsonString")
+                            } else {
+                                navController.navigate(Constants.CHAT_SCREEN + "?$DOCTOR_NAV_KEY=$doctorsJsonString&$GALLERY_IMAGE_URI=$sharedImageUri")
+                            }
                         }
                     )
                 }

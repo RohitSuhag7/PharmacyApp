@@ -1,5 +1,6 @@
 package com.example.pharmacyapp.presentation.navigation
 
+import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -11,7 +12,7 @@ import com.example.pharmacyapp.presentation.screens.auth.SignUpScreen
 import com.example.pharmacyapp.utils.Constants
 
 @Composable
-fun AppNavigation() {
+fun AppNavigation(sharedImageUri: Uri?) {
 
     val navController = rememberNavController()
 
@@ -29,7 +30,7 @@ fun AppNavigation() {
             SignUpScreen(navController = navController)
         }
         composable(route = Constants.BOTTOM_NAV) {
-            PharmacyBottomBar()
+            PharmacyBottomBar(sharedImageUri)
         }
     }
 }

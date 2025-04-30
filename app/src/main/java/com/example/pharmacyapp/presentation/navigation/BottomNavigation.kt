@@ -1,6 +1,8 @@
 package com.example.pharmacyapp.presentation.navigation
 
+import android.net.Uri
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -23,12 +25,19 @@ import com.example.pharmacyapp.presentation.screens.medicines.MedicineDetailsScr
 import com.example.pharmacyapp.presentation.screens.medicines.MedicinesListScreen
 import com.example.pharmacyapp.utils.Constants
 import com.example.pharmacyapp.utils.Constants.DOCTOR_NAV_KEY
+import com.example.pharmacyapp.utils.Constants.GALLERY_IMAGE_URI
 import com.example.pharmacyapp.utils.Constants.MEDICINE_NAV_KEY
 import com.example.pharmacyapp.utils.Constants.PDF_FILE_PATH
 import java.io.File
 
 @Composable
-fun BottomNavigation(navController: NavHostController) {
+fun BottomNavigation(navController: NavHostController, sharedImageUri: Uri?) {
+
+    LaunchedEffect(sharedImageUri) {
+        if (sharedImageUri != null) {
+            navController.navigate(Constants.DOCTORS_LIST_SCREEN + "?$GALLERY_IMAGE_URI=$sharedImageUri")
+        }
+    }
 
     NavHost(
         navController = navController,
@@ -49,8 +58,19 @@ fun BottomNavigation(navController: NavHostController) {
         composable(route = PharmacyNavScreens.MoreScreen.route) {
             MoreScreen(navController = navController)
         }
-        composable(route = Constants.DOCTORS_LIST_SCREEN) {
-            DoctorsListScreen(navController = navController)
+        composable(
+            route = Constants.DOCTORS_LIST_SCREEN + "?$GALLERY_IMAGE_URI={$GALLERY_IMAGE_URI}",
+            arguments = listOf(
+                navArgument(GALLERY_IMAGE_URI) {
+                    type = NavType.StringType
+                    nullable = true
+                }
+            )
+        ) { navBackStackEntry ->
+            DoctorsListScreen(
+                navController = navController,
+                sharedImageUri = navBackStackEntry.arguments?.getString(GALLERY_IMAGE_URI)
+            )
         }
         composable(
             route = Constants.DOCTOR_PROFILE + "?$DOCTOR_NAV_KEY={$DOCTOR_NAV_KEY}",
@@ -108,16 +128,21 @@ fun BottomNavigation(navController: NavHostController) {
             SettingsScreen(navController = navController)
         }
         composable(
-            route = Constants.CHAT_SCREEN + "?$DOCTOR_NAV_KEY={$DOCTOR_NAV_KEY}",
+            route = Constants.CHAT_SCREEN + "?$DOCTOR_NAV_KEY={$DOCTOR_NAV_KEY}&$GALLERY_IMAGE_URI={$GALLERY_IMAGE_URI}",
             arguments = listOf(
                 navArgument(DOCTOR_NAV_KEY) {
+                    type = NavType.StringType
+                    nullable = true
+                },
+                navArgument(GALLERY_IMAGE_URI) {
                     type = NavType.StringType
                     nullable = true
                 }
             )) { navBackStackEntry ->
             ChatScreen(
                 navController = navController,
-                doctorsJsonString = navBackStackEntry.arguments?.getString(DOCTOR_NAV_KEY)
+                doctorsJsonString = navBackStackEntry.arguments?.getString(DOCTOR_NAV_KEY),
+                sharedImageUri = navBackStackEntry.arguments?.getString(GALLERY_IMAGE_URI)
             )
         }
     }

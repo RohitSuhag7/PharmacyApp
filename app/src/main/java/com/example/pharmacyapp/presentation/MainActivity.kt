@@ -2,7 +2,9 @@ package com.example.pharmacyapp.presentation
 
 import android.annotation.SuppressLint
 import android.app.PictureInPictureParams
+import android.content.Intent
 import android.content.res.Configuration
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.Rational
@@ -49,7 +51,14 @@ class MainActivity : ComponentActivity() {
                 Scaffold(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    AppNavigation()
+                    val imageUri = intent?.let {
+                        if (it.action == Intent.ACTION_SEND && it.type?.startsWith("image/") == true) {
+                            it.getParcelableExtra<Uri>(Intent.EXTRA_STREAM)
+                                ?: it.clipData?.getItemAt(0)?.uri
+                        } else null
+                    }
+
+                    AppNavigation(imageUri)
 //                    val navigateTo = intent.getStringExtra("navigate_to")
 //                    if (navigateTo == "appointments_details") {
 //                        navController.navigate(PharmacyNavScreens.AppointmentsDetailsScreen.route)
